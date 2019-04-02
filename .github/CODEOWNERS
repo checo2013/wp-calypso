@@ -65,6 +65,9 @@
 # Test infrastructure
 /test @Automattic/team-calypso
 
+# Types, TypeScript, and type annotations
+*.ts *.tsx @Automattic/type-review
+
 # Calypso build packages
 packages/calypso-build @Automattic/gutenpack
 packages/calypso-color-schemes @Automattic/gutenpack
