@@ -1,5 +1,4 @@
-Publishing Packages with the Monorepo
-=====================================
+# Publishing Packages with the Monorepo
 
 Calypso is a monorepo. In addition to the Calypso application, it also hosts a number of independent modules that are published to NPM.
 
@@ -8,6 +7,7 @@ Calypso is a monorepo. In addition to the Calypso application, it also hosts a n
 These modules live under the `packages` directory, one folder per module.
 
 Modules should follow our convention for layout:
+
 ```
 # your package.json
 package.json
@@ -45,9 +45,7 @@ The only exception are `devDependencies` which _must be declared in the wp-calyp
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"sideEffects": false,
-	"keywords": [
-		"wordpress"
-	],
+	"keywords": [ "wordpress" ],
 	"author": "Your Name <you@example.com> (https://yoursite.wordpress.com/)",
 	"contributors": [],
 	"homepage": "https://github.com/Automattic/wp-calypso",
@@ -63,14 +61,11 @@ The only exception are `devDependencies` which _must be declared in the wp-calyp
 	"bugs": {
 		"url": "https://github.com/Automattic/wp-calypso/issues"
 	},
-	"files": [
-		"dist",
-		"src"
-	],
+	"files": [ "dist", "src" ],
 	"scripts": {
 		"clean": "npx rimraf dist",
 		"prepublish": "npm run clean",
-		"prepare": "npx @automattic/calypso-build"
+		"prepare": "npx --package @automattic/calypso-build transpile"
 	}
 }
 ```
@@ -78,6 +73,7 @@ The only exception are `devDependencies` which _must be declared in the wp-calyp
 If your package requires compilation, the `package.json` `prepare` script should compile the package. If it contains ES6+ code that needs to be transpiled, use `npx @automattic/calypso-build` which will automatically compile code in `src/` to `dist/cjs` (CommonJS) and `dist/esm` (ECMAScript Modules) by running `babel` over any source files it finds.
 
 ## Running Tests
+
 To run all of the package tests:
 
 `npm run test-packages`
