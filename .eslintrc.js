@@ -16,7 +16,6 @@ module.exports = {
 		{
 			files: [ 'bin/**/*' ],
 			rules: {
-				'@typescript-eslint/no-var-requires': 0,
 				'import/no-nodejs-modules': 0,
 				'no-console': 0,
 				'no-process-exit': 0,
@@ -63,12 +62,8 @@ module.exports = {
 		},
 	},
 	rules: {
-		'@typescript-eslint/no-use-before-define': [ 'error', { functions: false } ],
-		'@typescript-eslint/no-unused-vars': [ 'error', { ignoreRestSiblings: true } ],
-
 		// REST API objects include underscores
 		camelcase: 0,
-		'@typescript-eslint/camelcase': 0,
 
 		// TODO: why did we turn this off?
 		'jest/valid-expect': 0,
