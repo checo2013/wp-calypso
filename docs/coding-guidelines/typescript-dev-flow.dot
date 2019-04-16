@@ -1,0 +1,34 @@
+digraph {
+	label="What are my expecations when working with TypeScript?";
+
+    node[shape="box", style="rounded"]
+        existing_file; new_file;
+
+    node[shape="diamond"]
+        am_comfortable; am_comfortable_;
+
+    node[shape="parallelogram"]
+        no_types; learning; learning_; love_types;
+
+    existing_file -> am_comfortable;
+
+    am_comfortable -> no_types[label="no"];
+    am_comfortable -> learning[label="no but I want to be"];
+    am_comfortable -> love_types[label="yes"];
+
+    existing_file[label="opening an existing file"];
+    am_comfortable[label="am I comfortable\nworking with strong\nstatic types?"];
+    no_types[label="don't sweat it.\nwrite normal JavaScript in the\nfile as much as you can."];
+    learning[label="add as much or little TypeScript as you want\n\nthe types tribe will review your work\nand provide feedback to help you learn"];
+    love_types[label="write as you please but\ncoordinate with the types tribe to\nshare norms and coding styles"];
+
+    new_file -> am_comfortable_;
+
+    am_comfortable_ -> no_types[label="no", color="#aaaaaa"];
+    am_comfortable_ -> learning_[label="no but I want to be"];
+    am_comfortable_ -> love_types[label="yes"];
+
+    new_file[label="creating a new file"];
+    am_comfortable_[label="am I comfortable\nworking with strong\nstatic types?"];
+    learning_[label="go for it!\ncreate a new .ts or .tsx file\nand see what you can do\n\nthe types tribe will review it"];
+}
